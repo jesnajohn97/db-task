@@ -93,9 +93,9 @@ public class UserController {
 		}
 	}
 
-	@PostMapping("getAllTRainingsByUnit")
+	@PostMapping("getAllTrainingsByUnit")
 	public List<Map<String, Object>> getAllTRainingsByUnit(@RequestBody Employee e) {
-		List<Map<String, Object>> trainings = dbservices.getAllTRainingsByUnit(e);
+		List<Map<String, Object>> trainings = dbservices.getAllTrainingsByUnit(e);
 		if (trainings != null && !trainings.isEmpty()) {
 			return trainings;
 		} else {

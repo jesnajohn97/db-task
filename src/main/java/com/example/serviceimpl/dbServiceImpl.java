@@ -77,7 +77,7 @@ public class dbServiceImpl implements dbService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getAllTRainingsByUnit(Employee e) {
+	public List<Map<String, Object>> getAllTrainingsByUnit(Employee e) {
 		return jdbcTemplate.queryForList(Sql.GET_ALL_TRAININGS_BY_UNIT, e.getUnitId());
 	}
 
