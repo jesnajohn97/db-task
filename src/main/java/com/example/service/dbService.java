@@ -11,19 +11,15 @@ import com.example.entity.training;
 
 public interface dbService {
 
-	public List<Employee> insertAllEmployees(List<Employee> employees);
+	public int insertAllEmployees(List<Employee> employees);
 
-	public List<Unit> insertAllUnits(List<Unit> units);
+	public int insertAllUnits(List<Unit> units);
 
-	public List<training> insertAllTrainings(List<training> trainings);
+	public int insertAllTrainings(List<training> trainings);
 	
-	public List<TrainingFeedback> insertAllTrainingFeedbacks(List<TrainingFeedback> trainingFeedbacks );
+	public int insertAllTrainingFeedbacks(List<TrainingFeedback> trainingFeedbacks );
 
-	public List<Participants> insertAllParticipants(List<Participants> participants);
-
-	public List<Employee> getAllEmployees();
-	
-	public List<training> getAllTrainings();
+	public int insertAllParticipants(List<Participants> participants);
 	
 	public List<Map<String, Object>> getParticipantsByTrainingId(int trainingId);
 

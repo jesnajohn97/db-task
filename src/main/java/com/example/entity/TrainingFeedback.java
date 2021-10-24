@@ -1,13 +1,6 @@
 package com.example.entity;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "trainingfeedback")
 
 public class TrainingFeedback {
-    @Id
     private Integer id;
     private String comment;
     private Integer userId;

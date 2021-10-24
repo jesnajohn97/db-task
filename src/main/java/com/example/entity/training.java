@@ -1,11 +1,6 @@
 package com.example.entity;
 
-import javax.persistence.*;
- 
-@Entity
-@Table(name = "training")
 public class training {
-    @Id
     private Integer id;
     private String title;
     private Integer trainerId;

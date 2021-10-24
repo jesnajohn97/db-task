@@ -23,11 +23,29 @@ public class UserController {
 	@Autowired
 	dbService dbservices;
 
+	@PostMapping("addBulkUnits")
+	public String addUnits(@RequestBody List<Unit> units) {
+		if (units != null && !units.isEmpty()) {
+			int res = dbservices.insertAllUnits(units);
+			if (res > 0) {
+				return String.format("Added %d units.", res);
+			} else {
+				return "No data inserted";
+			}
+		} else {
+			return "no request body";
+		}
+	}
+
 	@PostMapping("addBulkEmployees")
 	public String addEmployees(@RequestBody List<Employee> employees) {
 		if (employees != null && !employees.isEmpty()) {
-			dbservices.insertAllEmployees(employees);
-			return String.format("Added %d people.", employees.size());
+			int res = dbservices.insertAllEmployees(employees);
+			if (res > 0) {
+				return String.format("Added %d employees.", res);
+			} else {
+				return "No data inserted";
+			}
 		} else {
 			return "no request body";
 		}
@@ -36,8 +54,12 @@ public class UserController {
 	@PostMapping("addBulkTrainings")
 	public String addTrainings(@RequestBody List<training> trainings) {
 		if (trainings != null && !trainings.isEmpty()) {
-			dbservices.insertAllTrainings(trainings);
-			return String.format("Added %d trainings.", trainings.size());
+			int res = dbservices.insertAllTrainings(trainings);
+			if (res > 0) {
+				return String.format("Added %d trainings.", res);
+			} else {
+				return "No data inserted";
+			}
 		} else {
 			return "no request body";
 		}
@@ -46,8 +68,12 @@ public class UserController {
 	@PostMapping("addBulkTrainingFeedback")
 	public String addTrainingFeedback(@RequestBody List<TrainingFeedback> trainingFeedbacks) {
 		if (trainingFeedbacks != null && !trainingFeedbacks.isEmpty()) {
-			dbservices.insertAllTrainingFeedbacks(trainingFeedbacks);
-			return String.format("Added %d training feedback.", trainingFeedbacks.size());
+			int res = dbservices.insertAllTrainingFeedbacks(trainingFeedbacks);
+			if (res > 0) {
+				return String.format("Added %d training feedbacks.", res);
+			} else {
+				return "No data inserted";
+			}
 		} else {
 			return "no request body";
 		}
@@ -56,40 +82,14 @@ public class UserController {
 	@PostMapping("addBulkParticipants")
 	public String addParticipants(@RequestBody List<Participants> participants) {
 		if (participants != null && !participants.isEmpty()) {
-			dbservices.insertAllParticipants(participants);
-			return String.format("Added %d participants.", participants.size());
+			int res = dbservices.insertAllParticipants(participants);
+			if (res > 0) {
+				return String.format("Added %d participants.", res);
+			} else {
+				return "No data inserted";
+			}
 		} else {
 			return "no request body";
-		}
-	}
-
-	@PostMapping("addBulkUnits")
-	public String addUnits(@RequestBody List<Unit> units) {
-		if (units != null && !units.isEmpty()) {
-			dbservices.insertAllUnits(units);
-			return String.format("Added %d units.", units.size());
-		} else {
-			return "no request body";
-		}
-	}
-
-	@GetMapping("getAllEmployees")
-	public List<Employee> getAllEmployees() {
-		List<Employee> employees = dbservices.getAllEmployees();
-		if (employees != null && !employees.isEmpty()) {
-			return employees;
-		} else {
-			return new ArrayList<>();
-		}
-	}
-
-	@GetMapping("getAllTrainings")
-	public List<training> getAllTrainings() {
-		List<training> trainings = dbservices.getAllTrainings();
-		if (trainings != null && !trainings.isEmpty()) {
-			return trainings;
-		} else {
-			return new ArrayList<>();
 		}
 	}
 
