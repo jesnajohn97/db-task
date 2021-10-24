@@ -1,7 +1,15 @@
 package com.example.serviceimpl;
 
 import com.example.entity.Employee;
+import com.example.entity.Participants;
+import com.example.entity.TrainingFeedback;
+import com.example.entity.Unit;
+import com.example.entity.training;
 import com.example.repo.EmployeeRepository;
+import com.example.repo.ParticipantsRepository;
+import com.example.repo.TrainingFeedbackRepository;
+import com.example.repo.TrainingRepository;
+import com.example.repo.UnitRepository;
 import com.example.service.dbService;
 
 import java.io.File;
@@ -18,30 +26,66 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-
 @Service
-public class dbServiceImpl implements dbService  {
-	
-	
+public class dbServiceImpl implements dbService {
+
 	@Autowired
 	private EmployeeRepository employeeRepo;
+
+	@Autowired
+	private UnitRepository unitRepo;
+
+	@Autowired
+	private TrainingRepository trainingRepo;
+
+	@Autowired
+	private ParticipantsRepository participantsRepo;
 	
+	@Autowired
+	private TrainingFeedbackRepository trainingFeedbackRepo;
+
 	@Override
-    public List<Employee> insertAllEmployees(List<Employee> employees) {
-        return (List<Employee>)employeeRepo.saveAll(employees);
-    }
-	
+	public List<Employee> insertAllEmployees(List<Employee> employees) {
+		return (List<Employee>) employeeRepo.saveAll(employees);
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		return (List<Employee>) employeeRepo.findAll();
+	}
+	@Override
+	public List<training> getAllTrainings() {
+		return (List<training>) trainingRepo.findAll();
+	}
+
+	@Override
+	public List<Unit> insertAllUnits(List<Unit> units) {
+		return (List<Unit>) unitRepo.saveAll(units);
+	}
+
+	@Override
+	public List<training> insertAllTrainings(List<training> trainings) {
+		return (List<training>) trainingRepo.saveAll(trainings);
+	}
+
+	@Override
+	public List<Participants> insertAllParticipants(List<Participants> participants) {
+		return (List<Participants>) participantsRepo.saveAll(participants);
+	}
+
+	@Override
+	public List<TrainingFeedback> insertAllTrainingFeedbacks(List<TrainingFeedback> trainingFeedbacks) {
+		return (List<TrainingFeedback>) trainingFeedbackRepo.saveAll(trainingFeedbacks);
+	}
+
 //	@Value("${file.firstnames.path}")
 //	String firstnamesPath;
 //	
 //	@Value("${file.lastnames.path}")
 //	String lastnamesPath;
-	
 
-	
 //	@Override
 //	public int[] addUsers(UserListDto userListDto) {
 //		List<Object[]> users = new ArrayList<>();
@@ -61,7 +105,6 @@ public class dbServiceImpl implements dbService  {
 //		}
 //		return rows;
 //	}
-
 
 //	
 //	@Override

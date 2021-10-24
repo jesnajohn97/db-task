@@ -6,22 +6,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.entity.Employee;
+import com.example.entity.Unit;
 
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface UnitRepository extends JpaRepository<Unit, Integer> {
 	
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query(value="INSERT INTO employees (id, name, unitId) values (?1, ?2, ?3)", nativeQuery = true)
-    public void saveEmployee(int id, String name, int unitId);
+	@Query(value="INSERT INTO unit (id, name) values (?1, ?2)", nativeQuery = true)
+    public void saveEmployee(int id, String name);
 	 
 }
 
-
-
-
- 
 
 

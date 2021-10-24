@@ -1,5 +1,5 @@
 package com.example.entity;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import javax.persistence.*;
  
@@ -7,18 +7,21 @@ import javax.persistence.*;
 @Table(name = "training")
 public class training {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private Integer trainerId;
-    private Timestamp datetime;
+    private String datetime;
     
+    public training() {
+    	super();
+    }
   
-	public training(Integer id, String title,Integer trainerId,Timestamp datetime) {
+	public training(Integer id, String title,Integer trainerId,String datetime) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.trainerId = trainerId;
+		this.datetime = datetime;
 	}
 
 
@@ -52,12 +55,12 @@ public class training {
 	}
 
 
-	public Timestamp getDatetime() {
+	public String getDatetime() {
 		return datetime;
 	}
 
 
-	public void setDatetime(Timestamp datetime) {
+	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
 
