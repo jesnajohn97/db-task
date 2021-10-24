@@ -12,18 +12,18 @@ import javax.persistence.Table;
 public class Participants {
 	@Id
 	private Integer id;
-	private Integer userId;
-	private Integer trainingId;
+	private Integer user_id;
+	private Integer training_id;
 
 	public Participants() {
 		super();
 	}
 
-	public Participants(Integer id ,Integer unitId, Integer trainingId) {
+	public Participants(Integer id ,Integer user_id, Integer training_id) {
 		super();
 		this.id = id;
-		this.userId = unitId;
-		this.trainingId = trainingId;
+		this.user_id = user_id;
+		this.user_id = training_id;
 	}
 
 	public Integer getId() {
@@ -34,20 +34,22 @@ public class Participants {
 		this.id = id;
 	}
 	
-	public Integer getUserId() {
-		return userId;
-	}
 	
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+
+	public Integer getUser_id() {
+		return user_id;
 	}
 
-	public Integer getTrainingId() {
-		return trainingId;
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 
-	public void setTrainingId(Integer trainingId) {
-		this.trainingId = trainingId;
+	public Integer getTraining_id() {
+		return training_id;
+	}
+
+	public void setTraining_id(Integer training_id) {
+		this.training_id = training_id;
 	}
 
 	@Override
@@ -56,9 +58,9 @@ public class Participants {
 		StringBuilder builder = new StringBuilder();
 		builder.append(String.valueOf(id));
 		builder.append(", ");
-		builder.append(userId);
+		builder.append(user_id);
 		builder.append(", ");
-		builder.append(trainingId);
+		builder.append(training_id);
 		return builder.toString();
 	}
 

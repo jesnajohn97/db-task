@@ -12,19 +12,19 @@ public class TrainingFeedback {
     @Id
     private Integer id;
     private String comment;
-    private Integer userId;
-    private Integer trainingId;
+    private Integer user_id;
+    private Integer training_id;
   
     public TrainingFeedback() {
     	super();
     }
   
-	public TrainingFeedback(Integer id, String comment,Integer userId, Integer trainingId) {
+	public TrainingFeedback(Integer id, String comment,Integer user_id, Integer training_id) {
 		super();
 		this.id = id;
 		this.comment = comment;
-		this.userId = userId;
-		this.trainingId = trainingId;
+		this.user_id = user_id;
+		this.training_id = training_id;
 	}
 
 
@@ -51,27 +51,23 @@ public class TrainingFeedback {
 		this.comment = comment;
 	}
 
-
-
-	public Integer getUserId() {
-		return userId;
-	}
-
-
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-	public Integer getTrainingId() {
-		return trainingId;
-	}
-
-
-
-	public void setTrainingId(Integer trainingId) {
-		this.trainingId = trainingId;
-	}
 	
+	public Integer getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+
+	public Integer getTraining_id() {
+		return training_id;
+	}
+
+	public void setTraining_id(Integer training_id) {
+		this.training_id = training_id;
+	}
+
 	@Override
     public String toString() {
 
@@ -80,9 +76,9 @@ public class TrainingFeedback {
         builder.append(", ");
         builder.append(comment);
         builder.append(", ");
-        builder.append(userId);
+        builder.append(user_id);
         builder.append(", ");
-        builder.append(trainingId);
+        builder.append(training_id);
         return builder.toString();
     }
     
