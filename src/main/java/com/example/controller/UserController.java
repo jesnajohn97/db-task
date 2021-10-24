@@ -15,6 +15,7 @@ import com.example.service.dbService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -29,25 +30,6 @@ public class UserController {
 			return String.format("Added %d people.", employees.size());
 		} else {
 			return "no request body";
-		}
-	}
-
-	@GetMapping("getAllEmployees")
-	public List<Employee> getAllEmployees() {
-		List<Employee> employees = dbservices.getAllEmployees();
-		if (employees != null && !employees.isEmpty()) {
-			return employees;
-		} else {
-			return new ArrayList<>();
-		}
-	}
-	@GetMapping("getAllTrainings")
-	public List<training> getAllTrainings() {
-		List<training> trainings = dbservices.getAllTrainings();
-		if (trainings != null && !trainings.isEmpty()) {
-			return trainings;
-		} else {
-			return new ArrayList<>();
 		}
 	}
 
@@ -91,26 +73,39 @@ public class UserController {
 		}
 	}
 
-//
-//	@GetMapping("/add/users")
-//	public String addUsers() {
-//	 
-//		return dbservices.addUser();
-//	}
-//	
+	@GetMapping("getAllEmployees")
+	public List<Employee> getAllEmployees() {
+		List<Employee> employees = dbservices.getAllEmployees();
+		if (employees != null && !employees.isEmpty()) {
+			return employees;
+		} else {
+			return new ArrayList<>();
+		}
+	}
 
-//	@GetMapping("/add/userExpenses")
-//	public String addUserExpenses() {
-//		
-//		return dbservices.addUserExpenses();
-//	}
-//	
-//	
-//	@GetMapping("/add/userSkills")
-//	public String addUserSkills() {
-//		
-//		return dbservices.addUserSkills();
-//	}
-//	
+	@GetMapping("getAllTrainings")
+	public List<training> getAllTrainings() {
+		List<training> trainings = dbservices.getAllTrainings();
+		if (trainings != null && !trainings.isEmpty()) {
+			return trainings;
+		} else {
+			return new ArrayList<>();
+		}
+	}
+
+	@PostMapping("getAllTRainingsByUnit")
+	public List<Map<String, Object>> getAllTRainingsByUnit(@RequestBody Employee e) {
+		List<Map<String, Object>> trainings = dbservices.getAllTRainingsByUnit(e);
+		if (trainings != null && !trainings.isEmpty()) {
+			return trainings;
+		} else {
+			return new ArrayList<>();
+		}
+	}
+
+	@PostMapping("getParticipantsByTrainingId")
+	public List<Map<String, Object>> getParticipantsByTrainingId(@RequestBody Participants p) {
+		return dbservices.getParticipantsByTrainingId(p.getTrainingId());
+	}
 
 }

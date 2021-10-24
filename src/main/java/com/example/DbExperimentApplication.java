@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = "com.example")
 
-@SpringBootApplication(scanBasePackages="com.example")
+@SpringBootApplication(scanBasePackages="com.example, com.example.dao")
 
 public class DbExperimentApplication {
 

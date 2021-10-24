@@ -2,8 +2,6 @@ package com.example.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -25,7 +23,6 @@ public class Unit {
 	public Unit(long id, String name) {
 		this.id = id;
 		this.name = name;
-
 	}
 
 	@Override
@@ -37,4 +34,5 @@ public class Unit {
 		builder.append(name);
 		return builder.toString();
 	}
+	
 }

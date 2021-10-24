@@ -1,6 +1,7 @@
 package com.example.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.example.entity.Employee;
 import com.example.entity.Participants;
@@ -10,16 +11,7 @@ import com.example.entity.training;
 
 public interface dbService {
 
-//	
-//	String addUserExpenses();
-//	
-//	String addUserSkills();
-//	
-//	String addUsers();
 	public List<Employee> insertAllEmployees(List<Employee> employees);
-
-	public List<Employee> getAllEmployees();
-	public List<training> getAllTrainings();
 
 	public List<Unit> insertAllUnits(List<Unit> units);
 
@@ -29,5 +21,12 @@ public interface dbService {
 
 	public List<Participants> insertAllParticipants(List<Participants> participants);
 
+	public List<Employee> getAllEmployees();
+	
+	public List<training> getAllTrainings();
+	
+	public List<Map<String, Object>> getParticipantsByTrainingId(int trainingId);
+
+	public List<Map<String, Object>> getAllTRainingsByUnit(Employee e);
 
 }
