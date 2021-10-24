@@ -13,17 +13,17 @@ public class Employee {
     @Id
    private Integer id;
     private String name;
-    private Integer unit_id;
+    private Integer unitId;
     
     public Employee() {
     	super();
     }
   
-	public Employee(Integer id, String name,Integer unit_id) {
+	public Employee(Integer id, String name,Integer unitId) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.unit_id = unit_id;
+		this.unitId = unitId;
 	}
 
 
@@ -50,14 +50,18 @@ public class Employee {
 		this.name = name;
 	}
 
-	public Integer getUnit_id() {
-		return unit_id;
+
+
+	public Integer getUnitId() {
+		return unitId;
 	}
 
-	public void setUnit_id(Integer unit_id) {
-		this.unit_id = unit_id;
-	}
 
+
+	public void setUnitId(Integer unitId) {
+		this.unitId = unitId;
+	}
+	
 	@Override
     public String toString() {
 
@@ -66,7 +70,7 @@ public class Employee {
         builder.append(", ");
         builder.append(name);
         builder.append(", ");
-        builder.append(unit_id);
+        builder.append(unitId);
         return builder.toString();
     }
     

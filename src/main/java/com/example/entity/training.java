@@ -9,18 +9,18 @@ public class training {
     @Id
     private Integer id;
     private String title;
-    private Integer trainer_id;
+    private Integer trainerId;
     private String datetime;
     
     public training() {
     	super();
     }
   
-	public training(Integer id, String title,Integer trainer_id,String datetime) {
+	public training(Integer id, String title,Integer trainerId,String datetime) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.trainer_id = trainer_id;
+		this.trainerId = trainerId;
 		this.datetime = datetime;
 	}
 
@@ -45,15 +45,15 @@ public class training {
 	}
 
 
-	
-
-	public Integer getTrainer_id() {
-		return trainer_id;
+	public Integer getTrainerId() {
+		return trainerId;
 	}
 
-	public void setTrainer_id(Integer trainer_id) {
-		this.trainer_id = trainer_id;
+
+	public void setTrainerId(Integer trainerId) {
+		this.trainerId = trainerId;
 	}
+
 
 	public String getDatetime() {
 		return datetime;
