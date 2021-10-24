@@ -13,7 +13,6 @@ public class Participants {
 	@Id
 	private Integer id;
 	private Integer userId;
-	private Integer unitId;
 	private Integer trainingId;
 
 	public Participants() {
@@ -23,7 +22,7 @@ public class Participants {
 	public Participants(Integer id ,Integer unitId, Integer trainingId) {
 		super();
 		this.id = id;
-		this.unitId = unitId;
+		this.userId = unitId;
 		this.trainingId = trainingId;
 	}
 
@@ -57,7 +56,7 @@ public class Participants {
 		StringBuilder builder = new StringBuilder();
 		builder.append(String.valueOf(id));
 		builder.append(", ");
-		builder.append(unitId);
+		builder.append(userId);
 		builder.append(", ");
 		builder.append(trainingId);
 		return builder.toString();
