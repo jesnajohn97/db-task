@@ -108,4 +108,14 @@ public class UserController {
 		return dbservices.getParticipantsByTrainingId(p.getTrainingId());
 	}
 
+	@PostMapping("getAllTrainingsByParticipant")
+	public List<Map<String, Object>> getAllTrainingsByParticipant(@RequestBody Participants p) {
+		List<Map<String, Object>> trainings = dbservices.getAllTrainingsByParticipant(p);
+		if (trainings != null && !trainings.isEmpty()) {
+			return trainings;
+		} else {
+			return new ArrayList<>();
+		}
+	}
+
 }

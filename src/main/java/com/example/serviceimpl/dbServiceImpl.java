@@ -116,5 +116,10 @@ public class dbServiceImpl implements dbService {
 	public List<Map<String, Object>> getParticipantsByTrainingId(int trainingId) {
 		return jdbcTemplate.queryForList(Sql.GET_ALL_PARTICIPANTS_BY_TRAINING_ID, trainingId);
 	}
+	
+	@Override
+	public List<Map<String, Object>> getAllTrainingsByParticipant(Participants p) {
+		return jdbcTemplate.queryForList(Sql.GET_ALL_TRAININGS_BY_PARTICIPANT, p.getUserId());
+	}
 
 }

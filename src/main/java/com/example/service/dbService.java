@@ -24,5 +24,7 @@ public interface dbService {
 	public List<Map<String, Object>> getParticipantsByTrainingId(int trainingId);
 
 	public List<Map<String, Object>> getAllTrainingsByUnit(Employee e);
+	
+	public List<Map<String, Object>> getAllTrainingsByParticipant(Participants p);
 
 }
