@@ -1,7 +1,6 @@
 package com.example.serviceimpl;
 
 import com.example.entity.Employee;
-import com.example.entity.Participants;
 import com.example.entity.TrainingFeedback;
 import com.example.entity.Unit;
 import com.example.entity.training;
@@ -74,23 +73,6 @@ public class dbServiceImpl implements dbService {
 	}
 
 	@Override
-	public int insertAllParticipants(List<Participants> participants) {
-		List<Object[]> users = new ArrayList<>();
-		int[] rows = null;
-		try {
-			for (Participants participant : participants) {
-				Object[] user = { participant.getUserId(), participant.getTrainingId() };
-				users.add(user);
-			}
-			rows = jdbcTemplate.batchUpdate(Sql.INSERT_PARTICIPANT, users);
-			return rows.length;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return 0;
-	}
-
-	@Override
 	public int insertAllTrainingFeedbacks(List<TrainingFeedback> trainingFeedbacks) {
 		List<Object[]> feedbacks = new ArrayList<>();
 		int[] rows = null;
@@ -118,8 +100,8 @@ public class dbServiceImpl implements dbService {
 	}
 	
 	@Override
-	public List<Map<String, Object>> getAllTrainingsByParticipant(Participants p) {
-		return jdbcTemplate.queryForList(Sql.GET_ALL_TRAININGS_BY_PARTICIPANT, p.getUserId());
+	public List<Map<String, Object>> getAllTrainingsByParticipant(TrainingFeedback f) {
+		return jdbcTemplate.queryForList(Sql.GET_ALL_TRAININGS_BY_PARTICIPANT, f.getUserId());
 	}
 
 }

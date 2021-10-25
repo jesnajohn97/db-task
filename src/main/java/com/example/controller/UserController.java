@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import com.example.entity.Employee;
-import com.example.entity.Participants;
 import com.example.entity.TrainingFeedback;
 import com.example.entity.Unit;
 import com.example.entity.training;
@@ -79,20 +78,6 @@ public class UserController {
 		}
 	}
 
-	@PostMapping("addBulkParticipants")
-	public String addParticipants(@RequestBody List<Participants> participants) {
-		if (participants != null && !participants.isEmpty()) {
-			int res = dbservices.insertAllParticipants(participants);
-			if (res > 0) {
-				return String.format("Added %d participants.", res);
-			} else {
-				return "No data inserted";
-			}
-		} else {
-			return "no request body";
-		}
-	}
-
 	@GetMapping("getAllTrainingsByUnit")
 	public List<Map<String, Object>> getAllTRainingsByUnit() {
 		List<Map<String, Object>> trainings = dbservices.getAllTrainings();
@@ -104,13 +89,13 @@ public class UserController {
 	}
 
 	@PostMapping("getParticipantsByTrainingId")
-	public List<Map<String, Object>> getParticipantsByTrainingId(@RequestBody Participants p) {
-		return dbservices.getParticipantsByTrainingId(p.getTrainingId());
+	public List<Map<String, Object>> getParticipantsByTrainingId(@RequestBody TrainingFeedback f) {
+		return dbservices.getParticipantsByTrainingId(f.getTrainingId());
 	}
 
 	@PostMapping("getAllTrainingsByParticipant")
-	public List<Map<String, Object>> getAllTrainingsByParticipant(@RequestBody Participants p) {
-		List<Map<String, Object>> trainings = dbservices.getAllTrainingsByParticipant(p);
+	public List<Map<String, Object>> getAllTrainingsByParticipant(@RequestBody TrainingFeedback f) {
+		List<Map<String, Object>> trainings = dbservices.getAllTrainingsByParticipant(f);
 		if (trainings != null && !trainings.isEmpty()) {
 			return trainings;
 		} else {
