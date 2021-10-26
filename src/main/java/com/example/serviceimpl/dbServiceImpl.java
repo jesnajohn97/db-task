@@ -101,7 +101,7 @@ public class dbServiceImpl implements dbService {
 	
 	@Override
 	public List<Map<String, Object>> getAllTrainingsByParticipant(TrainingFeedback f) {
-		return jdbcTemplate.queryForList(Sql.GET_ALL_TRAININGS_BY_PARTICIPANT, f.getUserId());
+		return jdbcTemplate.queryForList(Sql.GET_TRAININGS_BY_PARTICIPANT, f.getUserId());
 	}
 
 }

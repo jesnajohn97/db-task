@@ -78,8 +78,8 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("getAllTrainingsByUnit")
-	public List<Map<String, Object>> getAllTRainingsByUnit() {
+	@GetMapping("getAllTrainings")
+	public List<Map<String, Object>> getAllTRainings() {
 		List<Map<String, Object>> trainings = dbservices.getAllTrainings();
 		if (trainings != null && !trainings.isEmpty()) {
 			return trainings;

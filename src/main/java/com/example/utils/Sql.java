@@ -12,5 +12,6 @@ public class Sql {
 	public static final String GET_ALL_PARTICIPANTS_BY_TRAINING_ID="select e.id as id, e.name as name, u.name as unit, f.comment as comment from employee e, trainingfeedback f, unit u where e.id=f.user_id and e.unit_id=u.id and f.training_id=?";
 	public static final String GET_PARTICIPANTS_BY_TRAINING_ID="select e.id as id ,e.name as name, u.name as unit from employee e inner join unit u on e.unit_id=u.id"
 			+ " inner join  trainingfeedback f on  e.id=f.user_id where f.training_id=?";
-	public static final String GET_ALL_TRAININGS_BY_PARTICIPANT = "select t.id as id, t.title as title, t.datetime as dateTime from training t,  trainingfeedback f where t.id=p.training_id and f.user_id=?";
+	public static final String GET_ALL_TRAININGS_BY_PARTICIPANT = "select t.id as id, t.title as title, t.datetime as dateTime from training t,  trainingfeedback f where t.id=f.training_id and f.user_id=?";
+	public static final String GET_TRAININGS_BY_PARTICIPANT = "select t.id as id, t.title as title, t.datetime as dateTime from training t inner join  trainingfeedback f on t.id=f.training_id where f.user_id=?";
 }
